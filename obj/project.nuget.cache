@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f3y5K6YjcpDu6sTgHgzAUxYYRh/lnnVVwEwv3sJzrtyrZ8JlWznfgt5D3/2Dj4n/yk2UoHlVcMPttmlvsm418g==",
+  "dgSpecHash": "drc9nG5R//4OKQTK4kZHUz+9Fm3mXkWKrS3m3SptD6qI4oUiQ5gR6I3STLg7BZPzRPZbgXZ+jHydFx5mKBNQQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
+  "projectFilePath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Leonardo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Leonardo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

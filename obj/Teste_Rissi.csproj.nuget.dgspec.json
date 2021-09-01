@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj": {}
+    "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj": {
+    "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
+        "projectUniqueName": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
         "projectName": "Teste_Rissi",
-        "projectPath": "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
+        "projectPath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Teste_Rissi.csproj",
         "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\obj\\",
+        "outputPath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
