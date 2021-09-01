@@ -78,7 +78,7 @@ namespace Teste_Rissi.Controllers
 
                 HttpContext.Session.SetString("user", JsonSerializer.Serialize<Cliente>(user));
 
-                return RedirectToAction("Index", "Produto");
+                return RedirectToAction("Index", "Carro");
             }
         }
 

@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Teste_Rissi.Models;
+using static Teste_Rissi.Models.Carro;
 
 namespace Teste_Rissi.Data
 {
@@ -12,15 +14,16 @@ namespace Teste_Rissi.Data
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = base.connectionDB;
 
-            cmd.CommandText = @"Insert into Carros Values (@nome, @eixos, @categoria, @tamanhoPortaMalas, @preco, @portas, @createdAt, @updatedAt)";
+            cmd.CommandText = @"Insert into Carros Values (@nome, @eixos, @categoria, @tamanhoPortaMalas, @portas, @preco, @createdAt, @updatedAt)";
 
             cmd.Parameters.AddWithValue("@nome", carros.Nome);
             cmd.Parameters.AddWithValue("@eixos", carros.Eixos);
-            cmd.Parameters.AddWithValue("@categoria", carros.Cat.ToString());
+            cmd.Parameters.AddWithValue("@categoria", carros.NomeCategoria);
             cmd.Parameters.AddWithValue("@tamanhoPortaMalas", carros.TamanhoPortaMalas);
-            cmd.Parameters.AddWithValue("@preco", carros.Preco);
             cmd.Parameters.AddWithValue("@portas", carros.Portas);
+            cmd.Parameters.AddWithValue("@preco", carros.Preco);
             cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
+            cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
 
             cmd.ExecuteNonQuery();
         }
@@ -46,7 +49,27 @@ namespace Teste_Rissi.Data
                     carro.IdCarro = (int)reader["IdCarro"];
                     carro.Nome = (string)reader["Nome"];
                     carro.Eixos = (int)reader["Eixos"];
-                    string cat = (string)reader["Categoria"];
+                    if((string)reader["Categoria"] == "Hatch")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Hatch);
+                    }
+                    else if ((string)reader["Categoria"] == "Sedan")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Sedan);
+                    }
+                    else if ((string)reader["Categoria"] == "SUV")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.SUV);
+                    }
+                    else if ((string)reader["Categoria"] == "Utilitario")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Utilitario);
+                    }
+                    else
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Picape);
+                    }
+                    carro.NomeCategoria = (string)reader["Categoria"];
                     carro.TamanhoPortaMalas = (int)reader["TamanhoPortaMalas"];
                     carro.Preco = (decimal)reader["Preco"];
                     carro.Portas = (int)reader["Portas"];
@@ -82,19 +105,37 @@ namespace Teste_Rissi.Data
             if (reader.Read())
             {
 
-                carro = new Carro
-                {
-                    IdCarro = (int)reader["IdCarro"],
-                    Nome = (string)reader["Nome"],
-                    Eixos = (int)reader["Eixos"],
-                    //Cat = (string)reader["Categoria"],
-                    TamanhoPortaMalas = (int)reader["TamanhoPortaMalas"],
-                    Preco = (decimal)reader["Preco"],
-                    Portas = (int)reader["Portas"],
-                    CreatedAt = (DateTime)reader["CreatedAt"],
-                    UpdatedAt = (DateTime)reader["UpdatedAt"],
+                carro = new Carro();
 
-                };
+                    carro.IdCarro = (int)reader["IdCarro"];
+                    carro.Nome = (string)reader["Nome"];
+                    carro.Eixos = (int)reader["Eixos"];
+                    if((string)reader["Categoria"] == "Hatch")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Hatch);
+                    }
+                    else if ((string)reader["Categoria"] == "Sedan")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Sedan);
+                    }
+                    else if ((string)reader["Categoria"] == "SUV")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.SUV);
+                    }
+                    else if ((string)reader["Categoria"] == "Utilitario")
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Utilitario);
+                    }
+                    else
+                    {
+                        carro.SetCategoria(categoria:CategoriaEnum.Picape);
+                    }
+                    carro.TamanhoPortaMalas = (int)reader["TamanhoPortaMalas"];
+                    carro.Preco = (decimal)reader["Preco"];
+                    carro.Portas = (int)reader["Portas"];
+                    carro.CreatedAt = (DateTime)reader["CreatedAt"];
+                    carro.UpdatedAt = (DateTime)reader["UpdatedAt"];
+                    
             }
 
             return carro;
@@ -105,16 +146,17 @@ namespace Teste_Rissi.Data
             
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = base.connectionDB;
-            cmd.CommandText = @"Update Carro set Nome = @nome, Eixos = @eixos, Categoria = @categoria, TamanhoPortaMalas = @tamanhoPortaMalas, Preco = @preco, Portas = @portas, CreatedAt = @createdAt, UpdatedAt = @updatedAt
-            Where IdCliente = @id";
+            cmd.CommandText = @"Update Carros set Nome = @nome, Eixos = @eixos, Categoria = @categoria, TamanhoPortaMalas = @tamanhoPortaMalas, Portas = @portas, Preco = @preco, UpdatedAt = @updatedAt
+            Where IdCarro = @id";
 
             cmd.Parameters.AddWithValue("@id", carro.IdCarro);
             cmd.Parameters.AddWithValue("@nome", carro.Nome);
-            cmd.Parameters.AddWithValue("@Categoria", carro.Cat);
-            cmd.Parameters.AddWithValue("@TamanhoPortaMalas", carro.TamanhoPortaMalas);
-            cmd.Parameters.AddWithValue("@Preco", carro.Preco);
-            cmd.Parameters.AddWithValue("@Portas", carro.Portas);
-            cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+            cmd.Parameters.AddWithValue("@eixos", carro.Eixos);
+            cmd.Parameters.AddWithValue("@categoria", carro.NomeCategoria);
+            cmd.Parameters.AddWithValue("@tamanhoPortaMalas", carro.TamanhoPortaMalas);
+            cmd.Parameters.AddWithValue("@portas", carro.Portas);
+            cmd.Parameters.AddWithValue("@preco", carro.Preco);
+            cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
 
             cmd.ExecuteNonQuery();
         }
@@ -125,7 +167,7 @@ namespace Teste_Rissi.Data
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = base.connectionDB;
-                cmd.CommandText = @"Delete from Carro Where IdCarro = @id";
+                cmd.CommandText = @"Delete from Carros Where IdCarro = @id";
 
                 cmd.Parameters.AddWithValue("@id", id);
 

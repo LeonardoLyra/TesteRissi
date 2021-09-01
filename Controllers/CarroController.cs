@@ -2,17 +2,19 @@ using Teste_Rissi.Data;
 using Teste_Rissi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
 
 namespace Teste_Rissi.Controllers
 {
     public class CarroController : Controller
     {
-        
+
         public IActionResult Index()
         {
             using (var data = new CarroData())
                 return View(data.Read());
-            
+
         }
 
         [HttpGet]
@@ -28,7 +30,7 @@ namespace Teste_Rissi.Controllers
         [HttpPost]
         public IActionResult Create(Carro carro)
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return View(carro);
@@ -59,12 +61,11 @@ namespace Teste_Rissi.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            using (var data = new CarroData())
-            {
-                var lista = data.Read();
-                var item = new SelectList(lista, "IdCategoria", "Nome");
-                ViewBag.Categorias = item;
-            }
+            Carro carro = new Carro();
+            Array itemNames = System.Enum.GetNames(typeof(Carro.CategoriaEnum));
+            var item = new SelectList(itemNames, "NomeCategoria");
+            ViewBag.Categorias = item;
+
 
             using (var data = new CarroData())
                 return View(data.Read(id));

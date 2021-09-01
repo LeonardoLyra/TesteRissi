@@ -15649,6 +15649,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Views\\Carro\\Create.cshtml",
+      "TargetPath": "Views\\Carro\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15656,6 +15661,11 @@
     {
       "FilePath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Views\\Carro\\Index.cshtml",
       "TargetPath": "Views\\Carro\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Leonardo\\Desktop\\project\\Teste_Rissi\\Views\\Carro\\Update.cshtml",
+      "TargetPath": "Views\\Carro\\Update.cshtml",
       "FileKind": "mvc"
     }
   ],

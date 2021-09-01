@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,14 +21,24 @@ namespace Teste_Rissi.Models
 
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "Campo categoria obrigatório")]
-        public virtual CategoriaEnum Cat { get; set; } = new CategoriaEnum();
+        public CategoriaEnum _Categoria;
+
+        public void SetCategoria(CategoriaEnum categoria)
+        {
+            _Categoria = categoria;
+        }
+
+        public CategoriaEnum GetCategoria()
+        {
+            return _Categoria;
+        }
 
 
-        [Display(Name = "Tamanho do Porta Malas")]
+        [Display(Name = "TamanhoPortaMalas")]
         [Required(ErrorMessage = "Campo obrigatório")]
         public int TamanhoPortaMalas { get; set; }
 
-        [Display(Name = "Preço")]
+        [Display(Name = "Preco")]
         [Required(ErrorMessage = "Campo preço obrigatório")]
         public decimal Preco { get; set; }
 
@@ -38,15 +50,19 @@ namespace Teste_Rissi.Models
 
         public DateTime UpdatedAt { get; set; }
 
+        public int IdCategoria { get; set; }
+        public string NomeCategoria { get; set; }
+
+        public enum CategoriaEnum
+        {
+            [Description("Hatch")] Hatch = 0,
+            [Description("Sedan")] Sedan = 1,
+            [Description("SUV")] SUV = 2,
+            [Description("Utilitario")] Utilitario = 3,
+            [Description("Picape")] Picape = 4
+        }
 
     }
 
-    public enum CategoriaEnum
-        {
-            [Description("Hatch")] Hatch,
-            [Description("Sedan")] Sedan,
-            [Description("SUV")] SUV,
-            [Description("Utilitario")] Utilitario,
-            [Description("Picape")] Picape
-        }
+
 }

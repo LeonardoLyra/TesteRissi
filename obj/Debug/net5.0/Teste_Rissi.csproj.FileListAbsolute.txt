@@ -45,3 +45,5 @@ C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\ref\Teste_Rissi.d
 C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\Teste_Rissi.pdb
 C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\Teste_Rissi.genruntimeconfig.cache
 C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\Razor\Views\Carro\Index.cshtml.g.cs
+C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\Razor\Views\Carro\Create.cshtml.g.cs
+C:\Users\Leonardo\Desktop\project\Teste_Rissi\obj\Debug\net5.0\Razor\Views\Carro\Update.cshtml.g.cs
