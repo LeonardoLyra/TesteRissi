@@ -26,7 +26,7 @@ namespace Teste_Rissi
         {
 
             var builder = new SqlConnectionStringBuilder(
-            Configuration.GetConnectionString("strConexao"));
+            Configuration.GetConnectionString("DataBase"));
 
             services.AddDistributedMemoryCache();
 
@@ -66,7 +66,7 @@ namespace Teste_Rissi
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "/{controller=Carro}/{action=Index}/{id?}");
             });
         }
     }

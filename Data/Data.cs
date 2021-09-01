@@ -13,9 +13,7 @@ namespace Teste_Rissi.Data
         {
             try
             {
-                //string strConexao = Environment.GetEnvironmentVariable("StrConexao", EnvironmentVariableTarget.Machine);
-                
-                string strConexao = "Data Source = DESKTOP-Q909P6C\\SQLEXPRESS; Initial Catalog = bd_testeRissi; Integrated Security = true;";
+                string strConexao = Environment.GetEnvironmentVariable("DataBase");
 
                 connectionDB = new SqlConnection(strConexao);
 
